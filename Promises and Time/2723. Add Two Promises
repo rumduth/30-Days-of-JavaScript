@@ -1,0 +1,12 @@
+/**
+ * @param {Promise} promise1
+ * @param {Promise} promise2
+ * @return {Promise}
+ */
+var addTwoPromises = async function(promise1, promise2) {
+    return new Promise(async (resolve,reject) => {
+        let result = await Promise.all([promise1,promise2]);
+        result = result.reduce((acc, cur) => acc + cur, 0);
+        resolve(result);
+    })
+};
