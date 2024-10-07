@@ -1,0 +1,14 @@
+Typesccript:
+function createCounter(n: number): () => number {
+
+    return function() {
+        return n++;       
+    }
+}
+
+Javascript
+var createCounter = function(n) {
+    return function() {
+        return n++;
+    };
+};
