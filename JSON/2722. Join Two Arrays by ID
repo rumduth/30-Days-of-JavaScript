@@ -1,0 +1,23 @@
+/**
+ * @param {Array} arr1
+ * @param {Array} arr2
+ * @return {Array}
+ */
+var join = function(arr1, arr2) { 
+    let cache = {};
+    for(let obj of arr1){
+        let id = obj.id;
+        if(!(id in cache)) cache[id] = {};
+        cache[id] = {...cache[id],...obj};
+    }
+    for(let obj of arr2){
+        let id = obj.id;
+        if(!(id in cache)) cache[id] = {};
+        cache[id] = {...cache[id],...obj};
+    }
+    let res = [];
+    for(let v of Object.values(cache))
+        res.push(v);
+    return res;
+
+};
